@@ -51,6 +51,19 @@ public class ClassePrincipal {
             entry.getValue().forEach(System.out::println);
         }
 
+        // Filtrar funcionários que fazem aniversário nos meses 10 e 12
+        List<Funcionario> aniversariantes = funcionarios.stream()
+                .filter(f -> {
+                    int mes = f.getDataNascimento().getMonthValue();
+                    return mes == 10 || mes == 11 || mes == 12;
+                })
+                .collect(Collectors.toList());
+
+        // Exibir funcionários que fazem aniversário nos meses 10 e 12
+        System.out.println("\nFuncionários que fazem aniversário em Outubro a Dezembro:");
+        aniversariantes.forEach(System.out::println);
+    }
+
 
 
         // Exibindo a lista atualizada com o aumento de salário
@@ -67,7 +80,7 @@ public class ClassePrincipal {
 
 
         }
-        }
+
 
 
 
