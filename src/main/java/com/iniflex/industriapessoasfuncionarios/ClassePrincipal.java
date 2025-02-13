@@ -69,6 +69,14 @@ public class ClassePrincipal {
             System.out.println("\nFuncionário com a maior idade:");
             System.out.println("Nome: " + funcionario.getNome());
             System.out.println("Idade: " + funcionario.getIdade() + " anos");
+
+
+            // Ordenar funcionários por nome (ordem alfabética)
+            funcionarios.sort(Comparator.comparing(Funcionario::getNome));
+
+            // Exibir lista ordenada
+            System.out.println("\nLista de funcionários em ordem alfabética:");
+            funcionarios.forEach(System.out::println);
         });
     }
 
