@@ -52,6 +52,15 @@ public class Funcionario extends Pessoa{
         this.salario = this.salario.add(aumento);
     }
 
+    public static String formatarValor(BigDecimal valor) {
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols(new Locale("pt", "BR"));
+        symbols.setDecimalSeparator(',');
+        symbols.setGroupingSeparator('.');
+
+        DecimalFormat df = new DecimalFormat("#,##0.00", symbols);
+        return df.format(valor);
+    }
+
     // Método toString para exibir os dados do funcionário
     @Override
     public String toString() {

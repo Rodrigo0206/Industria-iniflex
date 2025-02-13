@@ -77,6 +77,14 @@ public class ClassePrincipal {
             // Exibir lista ordenada
             System.out.println("\nLista de funcionários em ordem alfabética:");
             funcionarios.forEach(System.out::println);
+
+            // Calcular o total dos salários
+            BigDecimal totalSalarios = funcionarios.stream()
+                    .map(Funcionario::getSalario)
+                    .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+            // Exibir total dos salários
+            System.out.println("\nTotal dos salários: R$ " + Funcionario.formatarValor(totalSalarios));
         });
     }
 
