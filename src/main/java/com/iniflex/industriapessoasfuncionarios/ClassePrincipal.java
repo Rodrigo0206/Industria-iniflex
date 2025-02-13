@@ -3,7 +3,11 @@ package com.iniflex.industriapessoasfuncionarios;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 
 public class ClassePrincipal {
     public static void main(String[] args) {
@@ -27,8 +31,46 @@ public class ClassePrincipal {
         // Removendo "Joao"
         funcionarios.removeIf(funcionario -> funcionario.getNome().equalsIgnoreCase("Joao"));
 
+        // Aplicando aumento de 10% para todos os funcionários
+        for (Funcionario f : funcionarios) {
+            f.aumentarSalario(new BigDecimal("10"));
+        }
+
         // Exibindo a lista atualizada
-        System.out.println("Lista de funcionários após remover João:");
+        System.out.println("Lista de funcionários após remover João e com aumento de 10% :");
         funcionarios.forEach(System.out::println);
-    }
-}
+
+        // Agrupar funcionários por função
+        Map<String, List<Funcionario>> funcionariosPorFuncao = funcionarios.stream()
+                .collect(Collectors.groupingBy(Funcionario::getFuncao));
+
+        // Exibir os funcionários agrupados por função
+        System.out.println("\nFuncionários agrupados por função:");
+        for (Map.Entry<String, List<Funcionario>> entry : funcionariosPorFuncao.entrySet()) {
+            System.out.println("\nFunção: " + entry.getKey());
+            entry.getValue().forEach(System.out::println);
+        }
+
+
+
+        // Exibindo a lista atualizada com o aumento de salário
+       // System.out.println("\nLista de funcionários após o aumento de 10%:");
+       // for (Funcionario f : funcionarios) {
+          //  System.out.println(f.getNome() + " - Salário: R$ " + f.getSalarioFormatado() + " - " + f.getFuncao());
+     //   }
+
+        //Exibir salários formatados
+        //for (Funcionario f : funcionarios) {
+          //  System.out.println(f.getNome() + " - Salário: R$ " + f.getSalarioFormatado() +" - "  + f.getFuncao() );
+        //
+
+
+
+        }
+        }
+
+
+
+
+
+
