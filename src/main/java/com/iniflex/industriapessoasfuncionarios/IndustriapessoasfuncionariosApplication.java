@@ -10,7 +10,7 @@ public class IndustriapessoasfuncionariosApplication {
 
 
 		SpringApplication.run(IndustriapessoasfuncionariosApplication.class, args);
-		System.out.println("teste3");
+		System.out.println("teste");
 	}
 
 }
