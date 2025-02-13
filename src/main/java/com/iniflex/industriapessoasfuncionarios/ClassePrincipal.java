@@ -2,10 +2,7 @@ package com.iniflex.industriapessoasfuncionarios;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -62,6 +59,17 @@ public class ClassePrincipal {
         // Exibir funcionários que fazem aniversário nos meses 10 e 12
         System.out.println("\nFuncionários que fazem aniversário em Outubro a Dezembro:");
         aniversariantes.forEach(System.out::println);
+
+        // Encontrar o funcionário mais velho
+        Optional<Funcionario> funcionarioMaisVelho = funcionarios.stream()
+                .min(Comparator.comparing(Funcionario::getDataNascimento));
+
+        // Exibir funcionário mais velho
+        funcionarioMaisVelho.ifPresent(funcionario -> {
+            System.out.println("\nFuncionário com a maior idade:");
+            System.out.println("Nome: " + funcionario.getNome());
+            System.out.println("Idade: " + funcionario.getIdade() + " anos");
+        });
     }
 
 

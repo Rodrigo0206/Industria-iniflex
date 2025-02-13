@@ -1,6 +1,7 @@
 package com.iniflex.industriapessoasfuncionarios;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 public class Pessoa {
@@ -32,6 +33,10 @@ public class Pessoa {
 
     public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
+    }
+
+    public int getIdade() {
+        return Period.between(dataNascimento, LocalDate.now()).getYears();
     }
 
     // Método para calcular idade
