@@ -2,13 +2,9 @@ package com.iniflex.industriapessoasfuncionarios;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
-import java.util.*;
-import java.util.stream.Collectors;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
-
 
 public class Funcionario extends Pessoa{
     private BigDecimal salario;

@@ -1,6 +1,7 @@
 package com.iniflex.industriapessoasfuncionarios;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -48,7 +49,7 @@ public class ClassePrincipal {
             entry.getValue().forEach(System.out::println);
         }
 
-        // Filtrar funcionários que fazem aniversário nos meses 10 e 12
+        // Filtrar funcionários que fazem aniversário nos meses 10 a 12
         List<Funcionario> aniversariantes = funcionarios.stream()
                 .filter(f -> {
                     int mes = f.getDataNascimento().getMonthValue();
@@ -85,25 +86,20 @@ public class ClassePrincipal {
 
             // Exibir total dos salários
             System.out.println("\nTotal dos salários: R$ " + Funcionario.formatarValor(totalSalarios));
+
+            // Definir o valor do salário mínimo
+            BigDecimal salarioMinimo = new BigDecimal("1212.00");
+
+            // Exibir quantos salários mínimos cada funcionário recebe
+            System.out.println("\nQuantidade de salários mínimos por funcionário:");
+            for (Funcionario f : funcionarios) {
+                BigDecimal qtdSalariosMinimos = f.getSalario().divide(salarioMinimo, 2, RoundingMode.HALF_UP);
+                System.out.println(f.getNome() + " recebe " + qtdSalariosMinimos + " salários mínimos.");
+            }
+
         });
     }
-
-
-
-        // Exibindo a lista atualizada com o aumento de salário
-       // System.out.println("\nLista de funcionários após o aumento de 10%:");
-       // for (Funcionario f : funcionarios) {
-          //  System.out.println(f.getNome() + " - Salário: R$ " + f.getSalarioFormatado() + " - " + f.getFuncao());
-     //   }
-
-        //Exibir salários formatados
-        //for (Funcionario f : funcionarios) {
-          //  System.out.println(f.getNome() + " - Salário: R$ " + f.getSalarioFormatado() +" - "  + f.getFuncao() );
-        //
-
-
-
-        }
+}
 
 
 

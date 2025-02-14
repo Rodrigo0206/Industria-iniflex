@@ -44,12 +44,6 @@ public class Pessoa {
         return LocalDate.now().getYear() - dataNascimento.getYear();
     }
 
-    // Método toString para exibir os dados da pessoa
-    //@Override
-   // public String toString() {
-      //  return "Nome: " + nome + ", Data de Nascimento: " + dataNascimento + ", Idade: " + calcularIdade();
-//    }
-
     // Método toString formatando a data
     @Override
     public String toString() {
@@ -58,5 +52,4 @@ public class Pessoa {
                 dataNascimento.format(FORMATTER),
                 calcularIdade());
     }
-
 }
